@@ -28,7 +28,7 @@ function Cards() {
         //   fetchData(url);
         // }, []);
         
-// return search data
+// return search data .
               useEffect(() => {
                 fetchData(url);
               }, [url]);
