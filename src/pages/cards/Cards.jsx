@@ -47,17 +47,6 @@ function Cards() {
     }
   },[serchValue])
 
-  // const input = document.getElementById('search');
-  // console.log("tt   "+input)
-  // input.addEventListener('keyup', handlSearch);
-
-  // return () => {
-  //   input.removeEventListener('keyup', handlSearch);
-  // };
-
-
-// }, [serchValue]);
-
 
   console.log(url);
   console.log(serchValue);
