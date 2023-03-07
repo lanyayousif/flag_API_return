@@ -24,27 +24,40 @@ function Cards() {
           });
         }
 // return all data
-        // useEffect(() => {
-        //   fetchData(url);
-        // }, []);
+        useEffect(() => {
+          fetchData(url);
+        }, []);
         
-// return search data .
-              useEffect(() => {
-                fetchData(url);
-              }, [url]);
+// return search data
+ useEffect(() => {
+   fetchData(url);
+ }, [url]);
               
+//  useEffect(() => {     
 
   const handlSearch = (e) => {
-    e.preventDefault();
-    setSearchvalue(e.target.value.toLowerCase());
-    // console.log("null test  "+`https://restcountries.com/v3.1/name/${serchValue}`)
-    if (!e.target.value.toLowerCase()) {
+      e.preventDefault();
+      setSearchvalue(e.target.value.toLowerCase());
+  };
+  useEffect(()=>{
+    if (!serchValue) {
       setUrl("https://restcountries.com/v3.1/all")
     }else{
-      setUrl(`https://restcountries.com/v3.1/name/${e.target.value.toLowerCase()}`);
+      setUrl(`https://restcountries.com/v3.1/name/${serchValue}`);
     }
+  },[serchValue])
 
-  };
+  // const input = document.getElementById('search');
+  // console.log("tt   "+input)
+  // input.addEventListener('keyup', handlSearch);
+
+  // return () => {
+  //   input.removeEventListener('keyup', handlSearch);
+  // };
+
+
+// }, [serchValue]);
+
 
   console.log(url);
   console.log(serchValue);
@@ -69,6 +82,7 @@ function Cards() {
               id="search"
               onChange={handlSearch}
               placeholder="Search Box"
+              
             />
           </div>
           <div className="cards">
@@ -84,5 +98,3 @@ function Cards() {
 }
 
 export default Cards;
-
-// fetchData(`https://restcountries.com/v3.1/name/${serchValue}`)
